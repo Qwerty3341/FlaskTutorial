@@ -21,3 +21,22 @@ def close_db(e=None):
 
     if db is not None:
         db.close()
+
+
+def init_db():
+    db = get_db()
+
+    with current_app.open_resource('squema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+
+
+@click.command
+def init_db_command():
+    """Clear the existing data and create new tables"""
+    init_db()
+    click.echo('Initialized the database.')
+
+
+sqlite3.register_converter(
+    "timestamp", lambda v: datetime.fromisoformat(v.decode())
+)
