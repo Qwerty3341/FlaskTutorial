@@ -1,2 +1,2 @@
 Flask Tutorial
-(Flaskr application)
+https://flask.palletsprojects.com/en/stable/tutorial/
