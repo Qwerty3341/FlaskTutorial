@@ -6,11 +6,9 @@ from flaskr.db import get_db
 def test_register(client, app):
     assert client.get('/auth/register').status_code == 200
     response = client.post(
-        '/auth/register',
-        data={'username': 'a', 'password': 'a'}
+        '/auth/register', data={'username': 'a', 'password': 'a'}
     )
-
-    assert response.headers["Location"] == '/auth/login'
+    assert response.headers["Location"] == "/auth/login"
 
     with app.app_context():
         assert get_db().execute(
@@ -49,7 +47,6 @@ def test_login(client, auth):
 def test_login_validate_input(auth, username, password, message):
     response = auth.login(username, password)
     assert message in response.data
-
 
 def test_logout(client, auth):
     auth.login()

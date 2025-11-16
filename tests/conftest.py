@@ -37,10 +37,9 @@ def client(app):
 def runner(app):
     return app.test_cli_runner()
 
-
 class AuthActions(object):
     def __init__(self, client):
-        self.client = client
+        self._client = client
 
     def login(self, username='test', password='test'):
         return self._client.post(

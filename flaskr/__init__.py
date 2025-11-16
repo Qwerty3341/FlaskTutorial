@@ -35,7 +35,7 @@ def create_app(test_config=None):
     # Pagina de holamundo
     @app.route('/hello')
     def hello():
-        return 'Hello World'
+        return 'Hello, World!'
     
 
     from . import db
