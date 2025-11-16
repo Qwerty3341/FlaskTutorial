@@ -1,1 +1,2 @@
-Tutorial de Flask
+Flask Tutorial
+(Flaskr application)
